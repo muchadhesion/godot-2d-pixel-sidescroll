@@ -453,3 +453,6 @@ hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player-CharacterBody2D"]
 shape = SubResource("RectangleShape2D_b3250")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="player-CharacterBody2D"]
+
