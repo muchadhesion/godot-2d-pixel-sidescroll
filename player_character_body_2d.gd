@@ -9,7 +9,8 @@ const DASH_VELOCITY = 40
 
 var _dash_vector : Vector2 = Vector2(0,0)
 
-var jump_available_count = 2
+const JUMP_COUNT_LIMIT = 2
+var jump_available_count = JUMP_COUNT_LIMIT
 
 func _ready() -> void:
 	pass
@@ -65,7 +66,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	if is_on_floor():
-		jump_available_count = 2
+		jump_available_count = JUMP_COUNT_LIMIT
 
 	# Handle jump
 	var jump_input = Input.is_action_just_pressed("jump")
