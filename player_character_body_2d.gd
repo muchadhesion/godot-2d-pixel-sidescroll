@@ -1,15 +1,13 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
+const SPEED_SQUARED = SPEED * SPEED
 const JUMP_VELOCITY = -400.0
 
 @onready var start_pos = self.position
 
 const JUMP_COUNT_LIMIT = 2
 var jump_available_count = JUMP_COUNT_LIMIT
-
-func is_moving_fast():
-	return velocity.length_squared() > 2
 
 func can_jump():
 	if is_on_floor():
@@ -25,15 +23,14 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("ui_left", "ui_right") + Input.get_axis("move_left", "move_right")
-
-	if direction and not is_moving_fast():
+	if $"dash-behaviour".is_dashing():
+		pass
+	elif direction:
 		velocity.x = direction * SPEED
-		if is_on_floor():
-			$AnimationPlayer.play("walk")
+		$AnimationPlayer.play("walk")
 	else:
-		if is_on_floor():
-			$AnimationPlayer.play("RESET")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimationPlayer.play("RESET")
 
 	if is_on_floor():
 		jump_available_count = JUMP_COUNT_LIMIT
@@ -44,6 +41,8 @@ func _physics_process(delta: float) -> void:
 		jump_available_count -= 1
 		velocity.y = JUMP_VELOCITY
 		$AnimationPlayer.play("jump")
+
+	$"dash-behaviour".dash_physics_process(delta)
 
 	if direction < 0:
 		$Sprite2D.flip_h = true
