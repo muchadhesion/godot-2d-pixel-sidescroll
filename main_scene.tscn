@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://c65cc5ur07brm"]
+[gd_scene load_steps=14 format=4 uid="uid://c65cc5ur07brm"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_bnrba"]
 [ext_resource type="Texture2D" uid="uid://up732qo3sb1m" path="res://kenney_1-bit-platformer-pack/Tilemap/monochrome_tilemap_packed.png" id="1_tcwh1"]
 [ext_resource type="Script" path="res://player_character_body_2d.gd" id="2_wp2uc"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="4_mu2ia"]
+[ext_resource type="Script" path="res://dash_behaviour.gd" id="4_yqbyy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrbn6"]
 texture = ExtResource("1_tcwh1")
@@ -654,6 +655,9 @@ libraries = {
 }
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="player-CharacterBody2D"]
+
+[node name="dash-behaviour" type="Node" parent="player-CharacterBody2D"]
+script = ExtResource("4_yqbyy")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("TargetNode")]
 position = Vector2(143, 81)
