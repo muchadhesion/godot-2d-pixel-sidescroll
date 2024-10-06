@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("ui_left", "ui_right") + Input.get_axis("move_left", "move_right")
-	if $"dash-behaviour".is_dashing():
+	if $dash_behaviour.is_dashing():
 		pass
 	elif direction:
 		velocity.x = direction * SPEED
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		$AnimationPlayer.play("jump")
 
-	$"dash-behaviour".dash_physics_process(delta)
+	$dash_behaviour.dash_physics_process(delta)
 
 	if direction < 0:
 		$Sprite2D.flip_h = true

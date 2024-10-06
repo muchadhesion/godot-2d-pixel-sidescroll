@@ -656,7 +656,7 @@ libraries = {
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="player-CharacterBody2D"]
 
-[node name="dash-behaviour" type="Node" parent="player-CharacterBody2D"]
+[node name="dash_behaviour" type="Node" parent="player-CharacterBody2D"]
 script = ExtResource("4_yqbyy")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("TargetNode")]
