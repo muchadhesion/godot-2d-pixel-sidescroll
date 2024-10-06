@@ -629,7 +629,6 @@ _data = {
 }
 
 [node name="main-scene" type="Node2D"]
-scale = Vector2(4, 4)
 script = ExtResource("1_bnrba")
 
 [node name="platforms-TileMapLayer" type="TileMapLayer" parent="."]
@@ -660,7 +659,7 @@ libraries = {
 script = ExtResource("4_yqbyy")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("TargetNode")]
-position = Vector2(143, 81)
+position = Vector2(220, 123)
 script = ExtResource("4_mu2ia")
 TargetNode = NodePath("../player-CharacterBody2D")
 

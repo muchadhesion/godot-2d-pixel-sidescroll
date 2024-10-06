@@ -1,8 +1,7 @@
 extends Node
 
-const DASH_SPEED = 800
+const DASH_SPEED = 250
 const DASH_FRAMES = 10
-const SPEED_SQUARED = 300 * 300
 
 @onready var player = get_parent()
 
