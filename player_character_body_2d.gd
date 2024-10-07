@@ -26,7 +26,8 @@ func _physics_process(delta: float) -> void:
 		pass
 	elif direction:
 		velocity.x = direction * SPEED
-		$AnimationPlayer.play("walk")
+		if is_on_floor():
+			$AnimationPlayer.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$AnimationPlayer.play("RESET")
