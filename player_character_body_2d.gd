@@ -30,7 +30,8 @@ func _physics_process(delta: float) -> void:
 			$AnimationPlayer.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		$AnimationPlayer.play("RESET")
+		if is_on_floor():
+			$AnimationPlayer.play("RESET")
 
 	if is_on_floor():
 		jump_available_count = JUMP_COUNT_LIMIT
