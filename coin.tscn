@@ -8,6 +8,7 @@ size = Vector2(8, 8)
 [node name="coin_Area2D" type="Area2D" groups=["collectable"]]
 scale = Vector2(4, 4)
 collision_layer = 2
+metadata/coins = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5jd4m")

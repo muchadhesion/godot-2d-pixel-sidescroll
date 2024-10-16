@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c65cc5ur07brm"]
+[gd_scene load_steps=18 format=4 uid="uid://c65cc5ur07brm"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_bnrba"]
 [ext_resource type="Texture2D" uid="uid://up732qo3sb1m" path="res://kenney_1-bit-platformer-pack/Tilemap/monochrome_tilemap_packed.png" id="1_tcwh1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://dash_behaviour.gd" id="4_yqbyy"]
 [ext_resource type="Script" path="res://collector_area_2d.gd" id="5_qe7x6"]
 [ext_resource type="PackedScene" uid="uid://dwcwy4wd5rfqd" path="res://coin.tscn" id="7_jujfu"]
+[ext_resource type="PackedScene" uid="uid://cngqt11qi4yvs" path="res://wand.tscn" id="8_hnpnl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrbn6"]
 texture = ExtResource("1_tcwh1")
@@ -683,12 +684,18 @@ position = Vector2(-140, 114)
 
 [node name="coin_Area2D2" parent="." instance=ExtResource("7_jujfu")]
 position = Vector2(398, 143)
+metadata/coins = 2
 
 [node name="coin_Area2D3" parent="." instance=ExtResource("7_jujfu")]
 position = Vector2(727, -103)
 
 [node name="coin_Area2D4" parent="." instance=ExtResource("7_jujfu")]
 position = Vector2(1620, -232)
+
+[node name="wand_Area2D" parent="." groups=["collectable"] instance=ExtResource("8_hnpnl")]
+position = Vector2(416, -45)
+collision_layer = 2
+metadata/weapon = "wand"
 
 [connection signal="screen_exited" from="player-CharacterBody2D/VisibleOnScreenNotifier2D" to="player-CharacterBody2D" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="area_entered" from="player-CharacterBody2D/collector_Area2D" to="player-CharacterBody2D/collector_Area2D" method="_on_area_entered"]

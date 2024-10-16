@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cngqt11qi4yvs"]
+
+[ext_resource type="Texture2D" uid="uid://bqr4faymeq4hs" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0205.png" id="1_pohxo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgwhe"]
+size = Vector2(16, 63.5)
+
+[node name="wand_Area2D" type="Area2D"]
+rotation = 3.32136
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_pohxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_kgwhe")
